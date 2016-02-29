@@ -171,6 +171,8 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         int colorStatusUp;
         @BindColor(R.color.lime)
         int colorStatusDown;
+        @BindColor(R.color.material_red_100)
+        int colorStatusError;
 
         @Bind(R.id.imageButtonCardFavourite)
         ImageButton imageButtonCardFavourite;
@@ -504,6 +506,7 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             holder.imageButtonCardUp.setVisibility(View.INVISIBLE);
             holder.imageButtonCardDown.setVisibility(View.INVISIBLE);
             holder.imageViewCardAlert.setVisibility(View.VISIBLE);
+            holder.cardViewAutomation.setCardBackgroundColor(holder.colorStatusError);
             return;
         }
         switch (status) {
