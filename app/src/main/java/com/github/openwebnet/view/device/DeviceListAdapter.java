@@ -99,6 +99,9 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         @BindDrawable(R.drawable.triangle_fail)
         Drawable drawableStatusFail;
 
+        @Bind(R.id.cardViewDevice)
+        CardView cardViewDevice;
+
         @Bind(R.id.relativeLayoutCardDeviceStatus)
         RelativeLayout relativeLayoutCardDeviceStatus;
 
@@ -139,8 +142,6 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         int colorStatusOn;
         @BindColor(R.color.white)
         int colorStatusOff;
-        @BindColor(R.color.material_red_100)
-        int colorStatusError;
 
         @Bind(R.id.cardViewLight)
         CardView cardViewLight;
@@ -211,6 +212,9 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         @Bind(R.id.imageViewCardAlert)
         ImageView imageViewCardAlert;
+
+        @BindColor(R.color.material_red_100)
+        int colorStatusError;
 
         public CommonViewHolder(View view) {
             super(view);
@@ -344,11 +348,13 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             holder.relativeLayoutCardDeviceStatus.setBackground(holder.drawableStatusWait);
             holder.imageButtonCardSend.setVisibility(View.INVISIBLE);
             holder.imageViewCardAlert.setVisibility(View.VISIBLE);
+            holder.cardViewDevice.setCardBackgroundColor(holder.colorStatusError);
             return;
         }
 
         holder.imageButtonCardSend.setVisibility(View.VISIBLE);
         holder.imageViewCardAlert.setVisibility(View.INVISIBLE);
+        holder.cardViewDevice.setCardBackgroundColor(R.color.white);
         switch (device.getStatus()) {
             case SUCCESS: holder.relativeLayoutCardDeviceStatus.setBackground(holder.drawableStatusSuccess); break;
             case FAIL: holder.relativeLayoutCardDeviceStatus.setBackground(holder.drawableStatusFail); break;
