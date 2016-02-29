@@ -139,6 +139,8 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         int colorStatusOn;
         @BindColor(R.color.white)
         int colorStatusOff;
+        @BindColor(R.color.material_red_100)
+        int colorStatusError;
 
         @Bind(R.id.cardViewLight)
         CardView cardViewLight;
@@ -432,6 +434,7 @@ public class DeviceListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             log.warn("light status is null: unable to update");
             holder.imageButtonCardSend.setVisibility(View.INVISIBLE);
             holder.imageViewCardAlert.setVisibility(View.VISIBLE);
+            holder.cardViewLight.setCardBackgroundColor(holder.colorStatusError);
             return;
         }
         switch (status) {
